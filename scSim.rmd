@@ -1,105 +1,23 @@
-``` r
+---
+title: "Single Cell Data Simulation"
+author: "Sushant Patkar"
+date: "11/12/2019"
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
 #load required libraries
 library(splatter)
-```
-
-    ## Loading required package: SingleCellExperiment
-
-    ## Loading required package: SummarizedExperiment
-
-    ## Loading required package: GenomicRanges
-
-    ## Loading required package: stats4
-
-    ## Loading required package: BiocGenerics
-
-    ## Loading required package: parallel
-
-    ## 
-    ## Attaching package: 'BiocGenerics'
-
-    ## The following objects are masked from 'package:parallel':
-    ## 
-    ##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-    ##     clusterExport, clusterMap, parApply, parCapply, parLapply,
-    ##     parLapplyLB, parRapply, parSapply, parSapplyLB
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     IQR, mad, sd, var, xtabs
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
-    ##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
-    ##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
-    ##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-    ##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
-    ##     union, unique, unsplit, which, which.max, which.min
-
-    ## Loading required package: S4Vectors
-
-    ## 
-    ## Attaching package: 'S4Vectors'
-
-    ## The following object is masked from 'package:base':
-    ## 
-    ##     expand.grid
-
-    ## Loading required package: IRanges
-
-    ## Loading required package: GenomeInfoDb
-
-    ## Loading required package: Biobase
-
-    ## Welcome to Bioconductor
-    ## 
-    ##     Vignettes contain introductory material; view with
-    ##     'browseVignettes()'. To cite Bioconductor, see
-    ##     'citation("Biobase")', and for packages 'citation("pkgname")'.
-
-    ## Loading required package: DelayedArray
-
-    ## Loading required package: matrixStats
-
-    ## 
-    ## Attaching package: 'matrixStats'
-
-    ## The following objects are masked from 'package:Biobase':
-    ## 
-    ##     anyMissing, rowMedians
-
-    ## Loading required package: BiocParallel
-
-    ## 
-    ## Attaching package: 'DelayedArray'
-
-    ## The following objects are masked from 'package:matrixStats':
-    ## 
-    ##     colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     aperm, apply, rowsum
-
-``` r
 library(scater)
-```
 
-    ## Loading required package: ggplot2
-
-    ## 
-    ## Attaching package: 'scater'
-
-    ## The following object is masked from 'package:S4Vectors':
-    ## 
-    ##     rename
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     filter
-
-``` r
 #Enter destination path here
 PATH = "~/Single Cell/forKun"
 
@@ -238,110 +156,6 @@ dat <- Reduce(cbind, tpms)
 
 #Simulation dataset1: 
 patients <- assign_patients(dat, condition, ctype, c(0.75,0.1,0.1,0.05))
-```
-
-    ## [1] 1
-    ## [1] 2
-    ## [1] 3
-    ## [1] 4
-    ## [1] 5
-    ## [1] 6
-    ## [1] 7
-    ## [1] 8
-    ## [1] 9
-    ## [1] 10
-    ## [1] 11
-    ## [1] 12
-    ## [1] 13
-    ## [1] 14
-    ## [1] 15
-    ## [1] 16
-    ## [1] 17
-    ## [1] 18
-    ## [1] 19
-    ## [1] 20
-    ## [1] 21
-    ## [1] 22
-    ## [1] 23
-    ## [1] 24
-    ## [1] 25
-    ## [1] 26
-    ## [1] 27
-    ## [1] 28
-    ## [1] 29
-    ## [1] 30
-    ## [1] 31
-    ## [1] 32
-    ## [1] 33
-    ## [1] 34
-    ## [1] 35
-    ## [1] 36
-    ## [1] 37
-    ## [1] 38
-    ## [1] 39
-    ## [1] 40
-    ## [1] 41
-    ## [1] 42
-    ## [1] 43
-    ## [1] 44
-    ## [1] 45
-    ## [1] 46
-    ## [1] 47
-    ## [1] 48
-    ## [1] 49
-    ## [1] 50
-    ## [1] 51
-    ## [1] 52
-    ## [1] 53
-    ## [1] 54
-    ## [1] 55
-    ## [1] 56
-    ## [1] 57
-    ## [1] 58
-    ## [1] 59
-    ## [1] 60
-    ## [1] 61
-    ## [1] 62
-    ## [1] 63
-    ## [1] 64
-    ## [1] 65
-    ## [1] 66
-    ## [1] 67
-    ## [1] 68
-    ## [1] 69
-    ## [1] 70
-    ## [1] 71
-    ## [1] 72
-    ## [1] 73
-    ## [1] 74
-    ## [1] 75
-    ## [1] 76
-    ## [1] 77
-    ## [1] 78
-    ## [1] 79
-    ## [1] 80
-    ## [1] 81
-    ## [1] 82
-    ## [1] 83
-    ## [1] 84
-    ## [1] 85
-    ## [1] 86
-    ## [1] 87
-    ## [1] 88
-    ## [1] 89
-    ## [1] 90
-    ## [1] 91
-    ## [1] 92
-    ## [1] 93
-    ## [1] 94
-    ## [1] 95
-    ## [1] 96
-    ## [1] 97
-    ## [1] 98
-    ## [1] 99
-    ## [1] 100
-
-``` r
 dataset1 <- list()
 dataset1$tpm <- dat[,!is.na(patients)]
 dataset1$patients <- patients[!is.na(patients)]
@@ -356,140 +170,15 @@ dataset1$sc_reference <- dat[,!is.na(patients)]
 idx <- sample(ncol(dataset1$tpm),1000)
 res <- prcomp(t(dataset1$tpm[rowSums(dataset1$tpm[,idx]) != 0, idx]),scale = T)
 print(dim(res$x))
-```
-
-    ## [1] 1000  499
-
-``` r
 p1 <- ggplot(data = data.frame(dim1 = res$x[,1],dim2 = res$x[,2], condition = dataset1$batch[idx], celltype = dataset1$celltype[idx]), aes(x= dim1, y = dim2, color = condition, shape = celltype)) + geom_point() + theme_bw()
 print(p1)
-```
-
-![](scSim_files/figure-markdown_github/unnamed-chunk-1-1.png)
-
-``` r
 ggsave(p1, filename = paste(PATH,"/sim_dataset1_pca.pdf",sep = ""), useDingbats = F)
-```
-
-    ## Saving 7 x 5 in image
-
-``` r
 generate_gt(dataset1,1, PATH)
-```
-
-    ##  [1] "patient15" "patient95" "patient61" "patient48" "patient70" "patient25"
-    ##  [7] "patient30" "patient18" "patient51" "patient39"
-
-``` r
 rm(dataset1)
 
 
 #Simulation dataset2: 
 patients <- assign_patients(dat, condition, ctype, c(0.05,0.1,0.1,0.75))
-```
-
-    ## [1] 1
-    ## [1] 2
-    ## [1] 3
-    ## [1] 4
-    ## [1] 5
-    ## [1] 6
-    ## [1] 7
-    ## [1] 8
-    ## [1] 9
-    ## [1] 10
-    ## [1] 11
-    ## [1] 12
-    ## [1] 13
-    ## [1] 14
-    ## [1] 15
-    ## [1] 16
-    ## [1] 17
-    ## [1] 18
-    ## [1] 19
-    ## [1] 20
-    ## [1] 21
-    ## [1] 22
-    ## [1] 23
-    ## [1] 24
-    ## [1] 25
-    ## [1] 26
-    ## [1] 27
-    ## [1] 28
-    ## [1] 29
-    ## [1] 30
-    ## [1] 31
-    ## [1] 32
-    ## [1] 33
-    ## [1] 34
-    ## [1] 35
-    ## [1] 36
-    ## [1] 37
-    ## [1] 38
-    ## [1] 39
-    ## [1] 40
-    ## [1] 41
-    ## [1] 42
-    ## [1] 43
-    ## [1] 44
-    ## [1] 45
-    ## [1] 46
-    ## [1] 47
-    ## [1] 48
-    ## [1] 49
-    ## [1] 50
-    ## [1] 51
-    ## [1] 52
-    ## [1] 53
-    ## [1] 54
-    ## [1] 55
-    ## [1] 56
-    ## [1] 57
-    ## [1] 58
-    ## [1] 59
-    ## [1] 60
-    ## [1] 61
-    ## [1] 62
-    ## [1] 63
-    ## [1] 64
-    ## [1] 65
-    ## [1] 66
-    ## [1] 67
-    ## [1] 68
-    ## [1] 69
-    ## [1] 70
-    ## [1] 71
-    ## [1] 72
-    ## [1] 73
-    ## [1] 74
-    ## [1] 75
-    ## [1] 76
-    ## [1] 77
-    ## [1] 78
-    ## [1] 79
-    ## [1] 80
-    ## [1] 81
-    ## [1] 82
-    ## [1] 83
-    ## [1] 84
-    ## [1] 85
-    ## [1] 86
-    ## [1] 87
-    ## [1] 88
-    ## [1] 89
-    ## [1] 90
-    ## [1] 91
-    ## [1] 92
-    ## [1] 93
-    ## [1] 94
-    ## [1] 95
-    ## [1] 96
-    ## [1] 97
-    ## [1] 98
-    ## [1] 99
-    ## [1] 100
-
-``` r
 dataset2 <- list()
 dataset2$tpm <- dat[,!is.na(patients)]
 dataset2$patients <- patients[!is.na(patients)]
@@ -503,31 +192,10 @@ rm(dat)
 idx <- sample(ncol(dataset2$tpm),1000)
 res <- prcomp(t(dataset2$tpm[rowSums(dataset2$tpm[,idx]) != 0, idx]),scale = T)
 print(dim(res$x))
-```
-
-    ## [1] 1000  500
-
-``` r
 p2 <- ggplot(data = data.frame(dim1 = res$x[,1],dim2 = res$x[,2], condition = dataset2$batch[idx], celltype = dataset2$celltype[idx]), aes(x= dim1, y = dim2, color = condition, shape = celltype)) + geom_point() + theme_bw()
 print(p2)
-```
-
-![](scSim_files/figure-markdown_github/unnamed-chunk-1-2.png)
-
-``` r
 ggsave(p2, filename = paste(PATH,"/sim_dataset2_pca.pdf",sep = ""), useDingbats = F)
-```
-
-    ## Saving 7 x 5 in image
-
-``` r
 generate_gt(dataset2,2, PATH)
-```
-
-    ##  [1] "patient17" "patient85" "patient51" "patient44" "patient69" "patient5" 
-    ##  [7] "patient55" "patient19" "patient57" "patient46"
-
-``` r
 rm(dataset2)
 
 rm(tpms)
@@ -570,112 +238,6 @@ dat <- Reduce(cbind, tpms)
 
 #Simulation dataset3: 
 patients <- assign_patients(dat, condition, ctype, c(0.75,0.1,0.1,0.05))
-```
-
-    ## [1] 1
-    ## [1] 2
-    ## [1] 3
-    ## [1] 4
-    ## [1] 5
-    ## [1] 6
-    ## [1] 7
-    ## [1] 8
-    ## [1] 9
-    ## [1] 10
-    ## [1] 11
-    ## [1] 12
-    ## [1] 13
-    ## [1] 14
-    ## [1] 15
-    ## [1] 16
-    ## [1] 17
-    ## [1] 18
-    ## [1] 19
-    ## [1] 20
-    ## [1] 21
-    ## [1] 22
-    ## [1] 23
-    ## [1] 24
-    ## [1] 25
-    ## [1] 26
-    ## [1] 27
-    ## [1] 28
-    ## [1] 29
-    ## [1] 30
-    ## [1] 31
-    ## [1] 32
-    ## [1] 33
-    ## [1] 34
-    ## [1] 35
-    ## [1] 36
-    ## [1] 37
-    ## [1] 38
-    ## [1] 39
-    ## [1] 40
-    ## [1] 41
-    ## [1] 42
-    ## [1] 43
-    ## [1] 44
-    ## [1] 45
-    ## [1] 46
-    ## [1] 47
-    ## [1] 48
-    ## [1] 49
-    ## [1] 50
-    ## [1] 51
-    ## [1] 52
-    ## [1] 53
-    ## [1] 54
-    ## [1] 55
-    ## [1] 56
-    ## [1] 57
-    ## [1] 58
-    ## [1] 59
-    ## [1] 60
-    ## [1] 61
-    ## [1] 62
-    ## [1] 63
-    ## [1] 64
-    ## [1] 65
-    ## [1] 66
-    ## [1] 67
-    ## [1] 68
-    ## [1] 69
-    ## [1] 70
-    ## [1] 71
-    ## [1] 72
-    ## [1] 73
-    ## [1] 74
-    ## [1] 75
-    ## [1] 76
-    ## [1] 77
-    ## [1] 78
-    ## [1] 79
-    ## [1] 80
-    ## [1] 81
-    ## [1] 82
-    ## [1] 83
-    ## [1] 84
-    ## [1] 85
-    ## [1] 86
-    ## [1] 87
-    ## [1] 88
-    ## [1] 89
-    ## [1] 90
-    ## [1] 91
-    ## [1] 92
-    ## [1] 93
-    ## [1] 94
-    ## [1] 95
-    ## [1] 96
-    ## [1] 97
-    ## [1] 98
-    ## [1] 99
-    ## [1] 100
-    ## [1] 101
-    ## [1] 102
-
-``` r
 dataset3 <- list()
 dataset3$tpm <- dat[,!is.na(patients)]
 dataset3$patients <- patients[!is.na(patients)]
@@ -689,142 +251,15 @@ dataset3$batch = dataset3$batch[!is.na(patients)]
 idx <- sample(ncol(dataset3$tpm),1000)
 res <- prcomp(t(dataset3$tpm[rowSums(dataset3$tpm[,idx]) != 0, idx]),scale = T)
 print(dim(res$x))
-```
-
-    ## [1] 1000  499
-
-``` r
 p3 <- ggplot(data = data.frame(dim1 = res$x[,1],dim2 = res$x[,2], condition = dataset3$batch[idx], celltype = dataset3$celltype[idx]), aes(x= dim1, y = dim2, color = condition, shape = celltype)) + geom_point() + theme_bw()
 print(p3)
-```
-
-![](scSim_files/figure-markdown_github/unnamed-chunk-1-3.png)
-
-``` r
 ggsave(p3, filename = paste(PATH, "/sim_dataset3_pca.pdf", sep = ""), useDingbats = F)
-```
-
-    ## Saving 7 x 5 in image
-
-``` r
 generate_gt(dataset3,3, PATH)
-```
-
-    ##  [1] "patient6"  "patient95" "patient51" "patient21" "patient46" "patient49"
-    ##  [7] "patient35" "patient56" "patient78" "patient4"
-
-``` r
 rm(dataset3)
 
 
 #Simulation dataset4: 
 patients <- assign_patients(dat, condition, ctype, c(0.05,0.1,0.1,0.75))
-```
-
-    ## [1] 1
-    ## [1] 2
-    ## [1] 3
-    ## [1] 4
-    ## [1] 5
-    ## [1] 6
-    ## [1] 7
-    ## [1] 8
-    ## [1] 9
-    ## [1] 10
-    ## [1] 11
-    ## [1] 12
-    ## [1] 13
-    ## [1] 14
-    ## [1] 15
-    ## [1] 16
-    ## [1] 17
-    ## [1] 18
-    ## [1] 19
-    ## [1] 20
-    ## [1] 21
-    ## [1] 22
-    ## [1] 23
-    ## [1] 24
-    ## [1] 25
-    ## [1] 26
-    ## [1] 27
-    ## [1] 28
-    ## [1] 29
-    ## [1] 30
-    ## [1] 31
-    ## [1] 32
-    ## [1] 33
-    ## [1] 34
-    ## [1] 35
-    ## [1] 36
-    ## [1] 37
-    ## [1] 38
-    ## [1] 39
-    ## [1] 40
-    ## [1] 41
-    ## [1] 42
-    ## [1] 43
-    ## [1] 44
-    ## [1] 45
-    ## [1] 46
-    ## [1] 47
-    ## [1] 48
-    ## [1] 49
-    ## [1] 50
-    ## [1] 51
-    ## [1] 52
-    ## [1] 53
-    ## [1] 54
-    ## [1] 55
-    ## [1] 56
-    ## [1] 57
-    ## [1] 58
-    ## [1] 59
-    ## [1] 60
-    ## [1] 61
-    ## [1] 62
-    ## [1] 63
-    ## [1] 64
-    ## [1] 65
-    ## [1] 66
-    ## [1] 67
-    ## [1] 68
-    ## [1] 69
-    ## [1] 70
-    ## [1] 71
-    ## [1] 72
-    ## [1] 73
-    ## [1] 74
-    ## [1] 75
-    ## [1] 76
-    ## [1] 77
-    ## [1] 78
-    ## [1] 79
-    ## [1] 80
-    ## [1] 81
-    ## [1] 82
-    ## [1] 83
-    ## [1] 84
-    ## [1] 85
-    ## [1] 86
-    ## [1] 87
-    ## [1] 88
-    ## [1] 89
-    ## [1] 90
-    ## [1] 91
-    ## [1] 92
-    ## [1] 93
-    ## [1] 94
-    ## [1] 95
-    ## [1] 96
-    ## [1] 97
-    ## [1] 98
-    ## [1] 99
-    ## [1] 100
-    ## [1] 101
-    ## [1] 102
-
-``` r
 dataset4 <- list()
 dataset4$tpm <- dat[,!is.na(patients)]
 dataset4$patients <- patients[!is.na(patients)]
@@ -838,30 +273,10 @@ rm(dat)
 idx <- sample(ncol(dataset4$tpm),1000)
 res <- prcomp(t(dataset4$tpm[rowSums(dataset4$tpm[,idx]) != 0, idx]),scale = T)
 print(dim(res$x))
-```
-
-    ## [1] 1000  499
-
-``` r
 p4 <- ggplot(data = data.frame(dim1 = res$x[,1],dim2 = res$x[,2], condition = dataset4$batch[idx], celltype = dataset4$celltype[idx]), aes(x= dim1, y = dim2, color = condition, shape = celltype)) + geom_point() + theme_bw()
 print(p4)
-```
-
-![](scSim_files/figure-markdown_github/unnamed-chunk-1-4.png)
-
-``` r
 ggsave(p4, filename = paste(PATH, "/sim_dataset4_pca.pdf", sep = ""), useDingbats = F)
-```
-
-    ## Saving 7 x 5 in image
-
-``` r
 generate_gt(dataset4,4, PATH)
-```
-
-    ##  [1] "patient35"  "patient101" "patient58"  "patient15"  "patient89" 
-    ##  [6] "patient46"  "patient54"  "patient68"  "patient39"  "patient4"
-
-``` r
 rm(dataset4)
 ```
+
